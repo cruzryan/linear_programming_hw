@@ -1,30 +1,67 @@
 <script>
-	export let name;
+    import Noroeste from "./Noroeste.svelte";
+    import Simplex from "./Simplex.svelte";
+    import Vogel from "./Vogel.svelte";
+
+
+	let selected = 'simplex'; // simplex, vogel, noroeste
+
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+	<div class="nav">
+		<h2 on:click={() => selected = "simplex"} class={selected == "simplex"? "selected" : ""}>SIMPLEX</h2>
+		<h2 on:click={() => selected = "vogel"} class={selected == "vogel"? "selected" : ""}>VOGEL</h2>
+		<h2 on:click={() => selected = "noroeste"} class={selected == "noroeste"? "selected" : ""}>NOROESTE</h2>
+	</div>
+
+	{#if selected == "simplex"}
+		<Simplex />
+	{/if}
+
+	{#if selected == "vogel"}
+		<Vogel />
+	{/if}
+
+	{#if selected == "noroeste"}
+		<Noroeste />
+	{/if}
+
 </main>
 
 <style>
+
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	
+	.nav {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		
+		height: 50px;
+		width: 33vw;
+
+		margin-top: 10vh;
+		border-bottom: 1px solid #a3a3a3;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+	.nav h2 {
+		font-size: 15px;
+		color: #a3a3a3;
+		cursor: pointer;
+		user-select: none;
+
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	.selected {
+		color: #383838 !important;
 	}
+
 </style>

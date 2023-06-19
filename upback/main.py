@@ -3,7 +3,9 @@ from fastapi import FastAPI, HTTPException, Query, UploadFile, File, Form
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from simplex import run_simplex
+# from simplex import call_simplex
+
+import simplex as simplex
 
 app = FastAPI()
 
@@ -27,5 +29,5 @@ def voguel(file_str: str = Query(...), ):
     return {}
 
 @app.get("/simplex")
-def simplex(a: str = Query(...), b: str = Query(...), c: str = Query(...),):
-    return run_simplex(c, a, b)
+def simplx(a: str = Query(...), b: str = Query(...), c: str = Query(...),):
+    return simplex.call_simplex(c, a, b)

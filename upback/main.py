@@ -6,6 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 # from simplex import call_simplex
 
 import simplex as simplex
+import vogel as vogel
+import north_west as north_west
 
 app = FastAPI()
 
@@ -22,11 +24,11 @@ def read_root():
 
 @app.get("/north-west")
 def nw(file_str: str = Query(...), ):
-    return {}
+    return north_west.call_northwest(file_str)
 
 @app.get("/voguel")
 def voguel(file_str: str = Query(...), ):
-    return {}
+    return vogel.call_vogel(file_str)
 
 @app.get("/simplex")
 def simplx(a: str = Query(...), b: str = Query(...), c: str = Query(...),):

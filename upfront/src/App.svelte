@@ -4,7 +4,7 @@
     import Vogel from "./Vogel.svelte";
 
 
-	let selected = 'simplex'; // simplex, vogel, noroeste
+	let selected = 'noroeste'; // simplex, vogel, noroeste
 
 </script>
 
@@ -12,8 +12,8 @@
 
 	<div class="nav">
 		<h2 on:click={() => selected = "simplex"} class={selected == "simplex"? "selected" : ""}>SIMPLEX</h2>
-		<h2 on:click={() => selected = "vogel"} class={selected == "vogel"? "selected" : ""}>VOGEL</h2>
 		<h2 on:click={() => selected = "noroeste"} class={selected == "noroeste"? "selected" : ""}>NOROESTE</h2>
+		<h2 on:click={() => selected = "vogel"} class={selected == "vogel"? "selected" : ""}>VOGEL</h2>
 	</div>
 
 	{#if selected == "simplex"}

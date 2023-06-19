@@ -1,0 +1,14 @@
+Tabla inicial
+            D1     D2     D3     D4    D5 Suministro
+S1           -      -  250.0      -     -      250.0
+S2           -  175.0   75.0      -     -      250.0
+S3        50.0      -      -  130.0  70.0      250.0
+S4       250.0      -      -      -     -      250.0
+Demanda  300.0  175.0  325.0  130.0  70.0          *
+
+[Costo de transporte incial] = 7400
+
+[Coste optimo de transporte] = 7400
+
+Caught exception "Cannot convert symbols to int"
+Degenerated solutions found, exiting...
